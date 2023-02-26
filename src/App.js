@@ -10,6 +10,8 @@ import Counter from './ThreeTimesRender/ThreeTimesCounter';
 
 export default function App() {
 
+  console.log("Rendering App")
+
   // return (
   //   <MoviesGallery />
   // )
