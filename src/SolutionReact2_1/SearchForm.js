@@ -19,7 +19,18 @@ export default function SearchForm(props) {
         if (searchText.toLowerCase() in IMG_DATA) {
             console.log(IMG_DATA.searchText)
             setCurrImgUrl(IMG_DATA[searchText])
+        } else {
+            setCurrImgUrl('NOT_FOUND')
         }
+    }
+
+    let elem = null
+    if (currImgUrl === 'NOT_FOUND') {
+        elem = <p>Image does not exist</p>
+    } else if (currImgUrl === null) {
+        elem = null
+    } else {
+        elem = <SearchImg imgUrl={currImgUrl}/>
     }
     
     return(
@@ -40,8 +51,22 @@ export default function SearchForm(props) {
                 <Button variant="primary" type="submit">Show</Button>
             </Form>
 
-            <SearchImg imgUrl={currImgUrl}/>
+            {/* {currImgUrl &&
+                <SearchImg imgUrl={currImgUrl}/>
+            } */}
 
+            {/* {currImgUrl === 'NOT_FOUND'
+            ? 
+                <p>No image detected</p>
+            :
+                currImgUrl === null
+                ?
+                    null
+                :
+                    <SearchImg imgUrl={currImgUrl}/>
+            } */}
+
+            {elem}
         </Stack>
     )
 
