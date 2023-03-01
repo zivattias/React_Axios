@@ -1,4 +1,4 @@
-import { Button, IconButton, Stack } from "@mui/material";
+import { IconButton, Stack } from "@mui/material";
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 
 export default function FactWithLike(props) {
@@ -10,7 +10,8 @@ export default function FactWithLike(props) {
             <p style={{margin: 0}}>{props.factText}</p>
             <IconButton 
                 color="primary" variant="outlined"
-                onClick={() => props.onLikedNumber(Number(props.factText.split(' ')[0]))}>
+                onClick={() => props.onLikedNumber(Number(props.factText.split(' ')[0]))}
+                disabled={props.likeAccess}>
                 <ThumbUpAltIcon />
             </IconButton>
         </Stack>
